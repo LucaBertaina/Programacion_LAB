@@ -1,0 +1,307 @@
+Ejercicios Secuenciales 
+ 
+Ejercicio 1: Generador de Horóscopo 
+Escribe un programa que pida al usuario su fecha de nacimiento (en formato DD/MM/AAAA) y luego imprima su signo del zodiaco y un mensaje de horóscopo correspondiente. 
+ import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner lectura = new Scanner(System.in);
+
+        System.out.print("Ingresa tu fecha de nacimiento (DD/MM/AAAA): ");
+        String fechaNacimiento = lectura.nextLine();
+
+        String[] fechaDiv = fechaNacimiento.split("/");
+        int dia = Integer.parseInt(fechaDiv[0]);
+        int mes = Integer.parseInt(fechaDiv[1]);
+
+        String signo;
+        if ((mes == 1 && dia <= 20) || (mes == 12 && dia > 21)) {
+            signo = "Capricornio";
+        } else if ((mes == 2 && dia <= 19) || (mes == 1 && dia > 20)) {
+            signo = "Acuario";
+        } else if ((mes == 3 && dia <= 20) || (mes == 2 && dia > 19)) {
+            signo = "Piscis";
+        } else if ((mes == 4 && dia <= 20) || (mes == 3 && dia > 20)) {
+            signo = "Aries";
+        } else if ((mes == 5 && dia <= 21) || (mes == 4 && dia > 20)) {
+            signo = "Tauro";
+        } else if ((mes == 6 && dia <= 21) || (mes == 5 && dia > 21)) {
+            signo = "Géminis";
+        } else if ((mes == 7 && dia <= 22) || (mes == 6 && dia > 21)) {
+            signo = "Cáncer";
+        } else if ((mes == 8 && dia <= 23) || (mes == 7 && dia > 22)) {
+            signo = "Leo";
+        } else if ((mes == 9 && dia <= 23) || (mes == 8 && dia > 23)) {
+            signo = "Virgo";
+        } else if ((mes == 10 && dia <= 23) || (mes == 9 && dia > 23)) {
+            signo = "Libra";
+        } else if ((mes == 11 && dia <= 22) || (mes == 10 && dia > 23)) {
+            signo = "Escorpio";
+        } else {
+            signo = "Sagitario";
+        }
+        System.out.println("\nTu signo Zodiacal es: " + signo);
+    }
+    }
+
+Ejercicio 2: Calculadora de Calorías Quemadas 
+Escribe un programa que pida al usuario su peso en kilogramos, la duración del ejercicio en minutos y el tipo de ejercicio (correr, nadar, andar en bicicleta), y luego calcule e imprima las calorías quemadas. Utiliza diferentes tasas de calorías quemadas por minuto para cada tipo de ejercicio. 
+java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner lectura = new Scanner(System.in);
+        int tiempoEjercicio,caloriasQuemadas,peso;
+        String actividad;
+
+        System.out.println("Ingrese su peso en kilogramos: ");
+        peso= lectura.nextInt();
+        System.out.println("Ingrese la duracion del ejercicio en minutos:");
+        tiempoEjercicio= lectura.nextInt();
+        System.out.println("Que actividad realiza. Opciones a colocar Correr, nadar o bicicleta: ");
+        actividad= lectura.next().toLowerCase();
+
+        switch (actividad) {
+            case "nadar":
+                caloriasQuemadas= tiempoEjercicio*7;
+                System.out.println("Usted ha quemado " + caloriasQuemadas + " Calorias en " + tiempoEjercicio + " Minutos");
+                break;
+            case "correr":
+                caloriasQuemadas= tiempoEjercicio*11;
+                System.out.println("Usted ha quemado " + caloriasQuemadas + " Calorias en " + tiempoEjercicio + " Minutos");
+                break;
+            case "bicicleta":
+                caloriasQuemadas= tiempoEjercicio*9;
+                System.out.println("Usted ha quemado " + caloriasQuemadas + " Calorias en " + tiempoEjercicio + " Minutos");
+            default:
+                System.out.println("Actividad no reconocida.Ingrese nadar, correr o bicicleta");
+        }
+        lectura.close();
+    }
+
+}
+
+Ejercicio 3: Generador de Rutinas de Ejercicio 
+Escribe un programa que pida al usuario su nivel de condición física (principiante, intermedio, avanzado) y luego genere una rutina de ejercicio semanal con diferentes tipos de ejercicios y duraciones. 
+ import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner lectura = new Scanner(System.in);
+        String experiencia,texto1;
+        System.out.println("Su condicion fisica es de principiante, intermedio o avanzado?: ");
+        experiencia= lectura.next().toLowerCase();
+        switch (experiencia) {
+            case "principiante":
+                texto1 = """
+                        Dia 1: Cuerpo Completo(30-45min) 
+                        Ejercicios: Sentadillas - 3 series de 12-15 repeticiones
+                                   Flexiones de rodillas - 3 series de 8-12 repeticiones
+                                   Bíceps sin pesas - 3 series de 12 repeticiones
+                                   Plancha - 3 series de 20-30 segundos
+                        Dia 2: Descanso activo o caminata ligera (30 minutos)
+                        Día 3: Cuerpo completo (mismos ejercicios que el Día 1)
+                        Día 4: Descanso activo o estiramientos
+                        Día 5: Cuerpo completo (mismos ejercicios que el Día 1)
+                        Día 6 y 7: Descanso            
+                        """;
+                System.out.println(texto1);
+                break;
+            case "intermedio":
+                texto1= """
+                        Día 1: Cuerpo completo (45-60 minutos)
+                        Ejercicios: Sentadillas con salto - 4 series de 12 repeticiones
+                                    Flexiones (Push-ups) - 4 series de 12-15 repeticiones
+                                    Burpees - 4 series de 10 repeticiones
+                                    Plancha con elevación de pierna - 3 series de 30-45 segundos
+                        Día 2: Cardio (30-45 minutos)
+                        Día 3: Cuerpo completo (similar al Día 1, con variaciones)
+                        Ejercicios: Sentadilla búlgara - 4 series de 10 repeticiones por pierna  
+                                    Flexiones con variación de brazos - 4 series de 10 repeticiones por brazo
+                                    Hip Thrust - 4 series de 12-15 repeticiones
+                                    Escaladores - 4 series de 30 segundos
+                                    Plancha lateral con elevación de cadera - 3 series de 30 segundos por lado
+                        Día 4: Descanso activo o estiramientos
+                        Día 5: Circuito de fuerza (similar al Día 1, con intensidad aumentada)
+                        Ejercicios: Sentadillas con salto o con peso 
+                                    Flexiones declinada
+                                    Desplantes caminando
+                                    Burpees
+                        Día 6: Cardio de alta intensidad (actividad favorita)
+                        Día 7: Descanso completo            
+                        """;
+                System.out.println(texto1);
+                break;
+            case "avanzado":
+                texto1= """
+                        Día 1: Fuerza y resistencia de cuerpo completo (60-75 minutos)
+                        Ejercicios: Sentadillas con salto - 5 series de 15 repeticiones
+                                    Flexiones con palmada - 5 series de 12 repeticiones
+                                    Desplantes pliométricos - 5 series de 12 repeticiones por pierna
+                                    Burpees con salto de caja - 4 series de 10 repeticiones
+                                    Plancha con toque de hombros - 4 series de 45 segundos
+                        Día 2: Cardio de alta intensidad (HIIT - 30-45 minutos)
+                        Ejercicios: 30 segundos de sprint / 1 minuto de caminata ligera (repetir 15-20 veces)
+                        Día 3: Fuerza avanzada de cuerpo completo (60-75 minutos)
+                        Ejercicios: Sentadillas búlgaras con peso - 4 series de 12 repeticiones por pierna
+                                    Flexiones declinadas con peso - 5 series de 12 repeticiones
+                                    Pistol Squats - 4 series de 10 repeticiones por pierna
+                                    Remo invertido - 4 series de 12 repeticiones
+                                    Plancha lateral - 4 series de 30 segundos por lado
+                        Día 4: Descanso activo o cardio ligero (30-45 minutos)
+                        Día 5: Circuito de alta intensidad (45-60 minutos)
+                        Ejercicios: Burpees con salto alto - 4 series de 15 repeticiones
+                                    Pull-ups - 4 series de 12 repeticiones
+                                    Escaladores - 4 series de 45 segundos
+                                    Plancha con toque de rodilla - 4 series de 45 segundos
+                        Día 6: Descanso o yoga (45-60 minutos)
+                        Día 7: Descanso total o cardio ligero                        
+                        """;
+                System.out.println(texto1);
+                break;
+            default:
+                System.out.println("No se reconoce ese nivel de actividad");
+        }
+        lectura.close();
+
+    }
+
+}
+
+Ejercicio 4: Generador de Listas de Reproducción 
+Escribe un programa que pida al usuario su estado de ánimo (feliz, triste, enérgico, relajado) y luego genere una lista de reproducción con canciones sugeridas para ese estado de ánimo. 
+ import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        String animo,texto1;
+        Scanner lectura = new Scanner(System.in);
+        System.out.println("Hoy se encuentra feliz, triste, energetico o relajado: ");
+        animo= lectura.next().toLowerCase();
+        if (animo.equals("feliz")) {
+            texto1 = """
+                    Te recomiendo escuchar estas canciones:
+                    "Vivir mi vida" – Marc Anthony
+                    "La gozadera" – Gente de Zona ft. Marc Anthony
+                    "Bailando" – Enrique Iglesias ft. Gente de Zona, Descemer Bueno
+                    "Eres para mí" – Julieta Venegas ft. Anita Tijoux
+                    "Rayando el sol" – Maná
+                    """;
+            System.out.println(texto1);
+        } else if (animo.equals("triste")) {
+            texto1= """
+                    Te recomiendo escuchar estas canciones:
+                    "La Incondicional" – Luis Miguel
+                    "Tantas Veces" – Andrés Calamaro
+                    "Si tú no estás aquí" – Rosana
+                    "Te extraño, te olvido, te amo" – Ricky Martin
+                    "El amor después del amor" – Fito Páez
+                    """;
+            System.out.println(texto1);
+        } else if (animo.equals("energico")) {
+            texto1= """
+                    Te recomiendo escuchar estas canciones:
+                    "Dákiti" – Bad Bunny & Jhay Cortez
+                    "Ginza" – J Balvin
+                    "Tacones Rojos" – Sebastián Yatra
+                    "Tiburones" – Ricky Martin
+                    "Pa' Mayté" – Carlos Vives
+                    """;
+            System.out.println(texto1);
+        } else if (animo.equals("relajado")) {
+            texto1= """
+                    Te recomiendo escuchar estas canciones:
+                    "Bachata rosa" – Juan Luis Guerra
+                    "A dios le pido" – Juanes
+                    "Agua" – Jarabe de Palo
+                    "Te regalo" – Carla Morrison
+                    "Amor completo" – Mon Laferte
+                    """;
+            System.out.println(texto1);
+        } else {
+            System.out.println("El estado de animo no es uno de los proporcionados.");
+        }
+
+    }
+
+}
+
+Ejercicio 5: Calculadora de Costo de Viaje 
+Escribe un programa que pida al usuario la distancia del viaje en kilómetros, el consumo de combustible del vehículo en litros por kilómetro y el precio del combustible por litro, y luego calcule e imprima el costo total del viaje. 
+ import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner lectura = new Scanner(System.in);
+        double distancia,consumo,precio;
+        System.out.println("Ingrese la distancia del viaje en kilómetros: ");
+        distancia= lectura.nextDouble();
+        System.out.println("Ingrese  el consumo de combustible del vehículo en litros por kilómetro: ");
+        consumo= lectura.nextDouble();
+        System.out.println("Ingrese el precio del combustible por litro: ");
+        precio= lectura.nextDouble();
+        System.out.println("El coste total del viaje es de " + (distancia*consumo*precio) + "$");
+    }
+}
+
+Ejercicio 6: Generador de Planes de Estudio 
+Escribe un programa que pida al usuario cuántas horas al día puede estudiar y luego genere un plan de estudio semanal distribuyendo esas horas en diferentes materias. 
+ import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner lectura = new Scanner(System.in);
+
+        System.out.print("¿Cuántas horas al día puedes estudiar? ");
+        int horasDiarias = lectura.nextInt();
+
+        int totalHorasSemanales = horasDiarias * 7;
+
+        String[] materias = {"Matemáticas", "Ciencias", "Historia", "Literatura"};
+
+        int horasPorMateria = totalHorasSemanales / materias.length;
+        int horasRestantes = totalHorasSemanales % materias.length;
+
+        System.out.println("\nPlan de estudio semanal:");
+        for (int i = 0; i < materias.length; i++) {
+            System.out.println(materias[i] + ": " + horasPorMateria + " horas");
+        }
+        if (horasRestantes > 0) {
+            System.out.println("\nHoras adicionales para estudiar: " + horasRestantes + " horas.");
+        }
+
+    }
+}
+
+Ejercicio 7: Calculadora de Índice de Felicidad 
+Escribe un programa que pida al usuario varios factores de felicidad (nivel de satisfacción con la vida, nivel de estrés, nivel de salud, etc.) en una escala del 1 al 10 y luego calcule e imprima un índice de felicidad basado en esos factores. 
+ 
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner lectura = new Scanner(System.in);
+
+        System.out.println("En una escala del 1 al 10, califica los siguientes factores:");
+        System.out.print("Nivel de satisfacción con la vida: ");
+        int satisfaccionVida = lectura.nextInt();
+        System.out.print("Nivel de estrés (1 es bajo, 10 es alto): ");
+        int nivelEstres = lectura.nextInt();
+        System.out.print("Nivel de salud física: ");
+        int saludFisica = lectura.nextInt();
+        System.out.print("Nivel de relaciones personales (familia y amigos): ");
+        int relacionesPersonales = lectura.nextInt();
+        System.out.print("Nivel de equilibrio entre trabajo y vida personal: ");
+        int equilibrioTrabajoVida = lectura.nextInt();
+
+        double indiceFelicidad = (satisfaccionVida + (10 - nivelEstres) + saludFisica + relacionesPersonales + equilibrioTrabajoVida) / 5.0;
+        System.out.printf("\nTu índice de felicidad es: %.2f de 10\n", indiceFelicidad);
+
+        if (indiceFelicidad >= 8) {
+            System.out.println("¡Tu nivel de felicidad es muy alto!");
+        } else if (indiceFelicidad >= 5) {
+            System.out.println("Tu nivel de felicidad es moderado.");
+        } else {
+            System.out.println("Es posible que quieras mejorar en algunos aspectos para mejorar tu felicidad.");
+        }
+
+    }
+}
+
+ 

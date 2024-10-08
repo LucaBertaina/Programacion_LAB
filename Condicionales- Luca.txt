@@ -1,0 +1,373 @@
+Ejercicios Condicionales 
+ 
+Ejercicio 1: Sistema de Recomendación de Películas 
+Escribe un programa que pida al usuario su género de película favorito (acción, comedia, drama, ciencia ficción) y luego recomiende una película basada en su elección. 
+ import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        String genp,texto1;
+        texto1="""
+                --Listas Proporcionadas--
+                        Accion
+                        Comedia
+                        Ciencia Ficcion
+                        Drama
+                Cual es su genero de pelicula favorito:
+                """;
+        Scanner lectura = new Scanner(System.in);
+        System.out.println(texto1);
+        genp= lectura.next().toLowerCase();
+        if (genp.equals("comedia")) {
+            texto1 = """
+                    --Lista_ """ + genp + """
+                    --
+                    Superbad (2007)
+                    The Hangover (2009)
+                    Groundhog Day (1993)
+                    Dumb and Dumber (1994)
+                    Bridesmaids (2011)
+                    """;
+            System.out.println(texto1);
+        } else if (genp.equals("accion")) {
+            texto1= """
+                    --Lista_ """ + genp + """
+                     --
+                    Mad Max: Fury Road (2015)
+                    John Wick (2014)
+                    Gladiator (2000)
+                    Die Hard (1988)
+                    The Dark Knight (2008)
+                    """;
+            System.out.println(texto1);
+        } else if (genp.equals("drama")) {
+            texto1= """
+                    --Lista_ """ + genp + """
+                    --
+                    The Shawshank Redemption (1994)
+                    Forrest Gump (1994)
+                    A Beautiful Mind (2001)
+                    The Godfather (1972)
+                    Schindler's List (1993)
+                    """;
+            System.out.println(texto1);
+        } else if (genp.equals("ciencia ficcion")) {
+            texto1= """
+                    --Lista_ """ + genp + """
+                    --
+                    Blade Runner 2049 (2017)
+                    Inception (2010)
+                    Interstellar (2014)
+                    The Matrix (1999)
+                    Star Wars: Episode V – The Empire Strikes Back (1980)
+                    """;
+            System.out.println(texto1);
+        } else {
+            System.out.println("El genero de pelicula no se encuentra dentro de las listas proporcionadas.");
+        }
+
+    }
+
+}
+
+ Ejercicio 2: Calculadora de Descuentos 
+Escribe un programa que pida al usuario el precio de un producto y la categoría del cliente (estudiante, adulto, jubilado). Aplica un descuento del 10% para estudiantes, 5% para adultos y 15% para jubilados. Imprime el precio final después del descuento. 
+ public class Main {
+    public static void main(String[] args) {
+        Scanner lectura = new Scanner(System.in);
+
+        System.out.print("Introduce el precio del producto: ");
+        double precio = lectura.nextDouble();
+
+        System.out.print("Introduce la categoría del cliente (estudiante, adulto, jubilado): ");
+        String categoria = lectura.next().toLowerCase();
+
+        double descuento = 0;
+
+        switch (categoria) {
+            case "estudiante":
+                descuento = 0.10;
+                break;
+            case "adulto":
+                descuento = 0.05;
+                break;
+            case "jubilado":
+                descuento = 0.15;
+                break;
+            default:
+                System.out.println("Categoría no válida.");
+                return;
+        }
+
+        double descuentoAplicado = precio * descuento;
+        double precioFinal = precio - descuentoAplicado;
+
+        System.out.printf("El precio final después del descuento es: %.2f%n", precioFinal);
+    }
+}
+
+Ejercicio 3: Sistema de Recomendación de Libros 
+Escribe un programa que pida al usuario su género de libro favorito (fantasía, misterio, romance, ciencia ficción) y luego recomiende un libro basado en su elección. 
+ import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        String genLibro, texto;
+        texto = """
+                --Listas Proporcionadas--
+                        Fantasía
+                        Misterio
+                        Romance
+                        Ciencia Ficción
+                ¿Cuál es tu género de libro favorito?
+                """;
+        Scanner lectura = new Scanner(System.in);
+        System.out.println(texto);
+        genLibro = lectura.next().toLowerCase();
+
+        if (genLibro.equals("fantasía") || genLibro.equals("fantasia")) {
+            texto = """
+                    --Lista de """ + genLibro + """--
+                    El Hobbit - J.R.R. Tolkien
+                    Juego de Tronos - George R.R. Martin
+                    Harry Potter y la piedra filosofal - J.K. Rowling
+                    La Rueda del Tiempo - Robert Jordan
+                    Nacidos de la Bruma - Brandon Sanderson
+                    """;
+            System.out.println(texto);
+        } else if (genLibro.equals("misterio")) {
+            texto = """
+                    --Lista de """ + genLibro + """--
+                    El nombre de la rosa - Umberto Eco
+                    Asesinato en el Orient Express - Agatha Christie
+                    El código Da Vinci - Dan Brown
+                    La chica del tren - Paula Hawkins
+                    El silencio de los corderos - Thomas Harris
+                    """;
+            System.out.println(texto);
+        } else if (genLibro.equals("romance")) {
+            texto = """
+                    --Lista de """ + genLibro + """--
+                    Orgullo y prejuicio - Jane Austen
+                    Cumbres borrascosas - Emily Brontë
+                    Los puentes de Madison County - Robert James Waller
+                    Posdata: Te quiero - Cecelia Ahern
+                    El cuaderno de Noah - Nicholas Sparks
+                    """;
+            System.out.println(texto);
+        } else if (genLibro.equals("ciencia ficción") || genLibro.equals("ciencia ficcion")) {
+            texto = """
+                    --Lista de """ + genLibro + """--
+                    Dune - Frank Herbert
+                    Fundación - Isaac Asimov
+                    1984 - George Orwell
+                    Neuromante - William Gibson
+                    El juego de Ender - Orson Scott Card
+                    """;
+            System.out.println(texto);
+        } else {
+            System.out.println("El género de libro no se encuentra dentro de las listas proporcionadas.");
+        }
+    }
+}
+ Ejercicio 4: Calculadora de IMC con Recomendaciones 
+Escribe un programa que pida al usuario su peso en kilogramos y su altura en metros, y luego calcule su Índice de Masa Corporal (IMC). Imprime una recomendación basada en el IMC (bajo peso, peso normal, sobrepeso, obesidad). 
+ import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner lectura = new Scanner(System.in);
+
+        System.out.print("Introduce tu peso en kilogramos: ");
+        float peso = lectura.nextFloat();
+
+        System.out.print("Introduce tu altura en metros: ");
+        float altura = lectura.nextFloat();
+
+        float imc = peso / (altura * altura);
+        System.out.printf("Tu Índice de Masa Corporal (IMC) es: %.2f%n", imc);
+
+        if (imc < 18.5) {
+            System.out.println("Recomendación: Tienes bajo peso. Considera consultar a un profesional de la salud.");
+        } else if (imc >= 18.5 && imc < 24.9) {
+            System.out.println("Recomendación: Tienes un peso normal. ¡Sigue así!");
+        } else if (imc >= 25 && imc < 29.9) {
+            System.out.println("Recomendación: Tienes sobrepeso. Considera hacer ejercicio y revisar tu dieta.");
+        } else {
+            System.out.println("Recomendación: Tienes obesidad. Es recomendable consultar a un profesional de la salud.");
+        }
+        lectura.close();
+    }
+}
+
+ Ejercicio 5: Juego de Piedra, Papel o Tijera 
+Escribe un programa que pida al usuario que elija entre piedra, papel o tijera. Luego, el programa elige una opción al azar y determina quién gana. Imprime el resultado del juego. 
+ import java.util.Scanner;
+import java.util.Random;
+public class Main {
+    public static void main(String[] args) {
+        String elecjp;
+        String eleccpu="";
+        int ppt_j = 3;
+        int ppt_cpu;
+        Scanner lectura = new Scanner(System.in);
+        Random random = new Random();
+        System.out.println(""" 
+                Juego de Piedra-Papel-Tijeras
+                haz tu eleccion:
+                **Piedra**
+                **Papel**
+                **Tijeras**
+                """);
+        elecjp= lectura.next().toLowerCase();
+        if (elecjp.equals("piedra")) {
+            ppt_j = 0;
+        } else if (elecjp.equals("papel")) {
+            ppt_j = 1;
+        } else if (elecjp.equals("papel")) {
+            ppt_j = 2;
+        } else { System.out.println("No se encontro movimiento realizable");}
+
+        System.out.println("Realizando eleccion de la maquina");
+        ppt_cpu = random.nextInt(0,2);
+        if (ppt_cpu==0) {
+            eleccpu = "Piedra";
+        } else if (ppt_cpu==1) {
+            eleccpu = "Papel";
+        } else if (ppt_cpu==2) {
+            eleccpu = "Tijeras";
+        }
+        System.out.println("PJ: " + elecjp + " VS CPU: " + eleccpu );
+        if(ppt_j==ppt_cpu){
+            System.out.println("--------EMPATE--------");
+        } else if (ppt_j==0) {
+            if (ppt_cpu==1){
+                System.out.println("--------PERDISTE--------");
+            } else {System.out.println("--------GANASTE--------");}
+        } else if (ppt_j==1) {
+            if (ppt_cpu==2){
+                System.out.println("--------PERDISTE--------");
+            } else {System.out.println("--------GANASTE--------");}
+        } else if (ppt_j==2) {
+            if (ppt_cpu==0){
+                System.out.println("--------PERDISTE--------");
+            } else {System.out.println("--------GANASTE--------");}
+        }
+
+
+    }
+
+}
+
+ Ejercicio 6: Evaluador de Hábitos Saludables 
+Escribe un programa que pida al usuario cuántas horas al día duerme, cuántas horas al día hace ejercicio y cuántas comidas saludables consume al día. Luego, imprime una evaluación de sus hábitos saludables basada en estos datos. 
+ import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner lectura = new Scanner(System.in);
+
+        System.out.print("¿Cuántas horas al día duermes? ");
+        int horasDormidas = lectura.nextInt();
+
+        System.out.print("¿Cuántas horas al día haces ejercicio? ");
+        int horasEjercicio = lectura.nextInt();
+
+        System.out.print("¿Cuántas comidas saludables consumes al día? ");
+        int comidasSaludables = lectura.nextInt();
+
+        String evaluacion = "";
+
+        if (horasDormidas < 7) {
+            evaluacion += "Deberías considerar dormir más horas. Se recomienda entre 7 y 9 horas de sueño por noche.\n";
+        } else if (horasDormidas <= 9) {
+            evaluacion += "Tu cantidad de horas de sueño es adecuada.\n";
+        } else {
+            evaluacion += "Dormir más de 9 horas puede no ser necesario y podría afectar tu rutina diaria.\n";
+        }
+
+        if (horasEjercicio < 1) {
+            evaluacion += "Considera hacer más ejercicio. Se recomienda al menos 1 hora de actividad física al día.\n";
+        } else if (horasEjercicio <= 2) {
+            evaluacion += "Tu cantidad de ejercicio es buena. ¡Sigue así!\n";
+        } else {
+            evaluacion += "Haces mucho ejercicio. Asegúrate de descansar adecuadamente y no sobrecargar tu cuerpo.\n";
+        }
+
+        if (comidasSaludables < 2) {
+            evaluacion += "Intenta consumir más comidas saludables. Se recomienda al menos 3 comidas saludables al día.\n";
+        } else if (comidasSaludables <= 4) {
+            evaluacion += "Tu consumo de comidas saludables es bueno. ¡Sigue así!\n";
+        } else {
+            evaluacion += "Excelente, estás consumiendo muchas comidas saludables. ¡Muy bien hecho!\n";
+        }
+
+        System.out.println("\nEvaluación de tus hábitos saludables:");
+        System.out.println(evaluacion);
+
+        lectura.close();
+    }
+}
+
+ Ejercicio 7: Sistema de Recomendación de Actividades 
+Escribe un programa que pida al usuario su estado de ánimo (feliz, triste, enérgico, relajado) y luego recomiende una actividad basada en su estado de ánimo. 
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        String estadoAnimo, texto;
+        texto = """
+                --Estados de Ánimo Proporcionados--
+                        Feliz
+                        Triste
+                        Enérgico
+                        Relajado
+                ¿Cómo te sientes hoy?
+                """;
+        Scanner lectura = new Scanner(System.in);
+        System.out.println(texto);
+        estadoAnimo = lectura.next().toLowerCase();
+
+        if (estadoAnimo.equals("feliz")) {
+            texto = """
+                    --Actividades para cuando te sientes """ + estadoAnimo + """--
+                    1. Sal a pasear por el parque.
+                    2. Organiza una reunión con amigos.
+                    3. Escucha música alegre y bailable.
+                    4. Ve a ver una película de comedia.
+                    5. Prueba cocinar un nuevo plato.
+                    """;
+            System.out.println(texto);
+        } else if (estadoAnimo.equals("triste")) {
+            texto = """
+                    --Actividades para cuando te sientes """ + estadoAnimo + """--
+                    1. Escucha música relajante.
+                    2. Escribe tus pensamientos en un diario.
+                    3. Lee un libro que te guste.
+                    4. Habla con un amigo cercano.
+                    5. Haz una sesión de meditación o yoga suave.
+                    """;
+            System.out.println(texto);
+        } else if (estadoAnimo.equals("enérgico") || estadoAnimo.equals("energico")) {
+            texto = """
+                    --Actividades para cuando te sientes """ + estadoAnimo + """--
+                    1. Sal a correr o haz ejercicio al aire libre.
+                    2. Prueba una clase de baile o zumba.
+                    3. Organiza una actividad al aire libre, como senderismo.
+                    4. Haz una limpieza profunda en casa.
+                    5. Trabaja en un proyecto personal que te apasione.
+                    """;
+            System.out.println(texto);
+        } else if (estadoAnimo.equals("relajado")) {
+            texto = """
+                    --Actividades para cuando te sientes """ + estadoAnimo + """--
+                    1. Lee un buen libro en un lugar cómodo.
+                    2. Toma un baño caliente.
+                    3. Escucha música tranquila o sonidos de la naturaleza.
+                    4. Haz una caminata suave por la naturaleza.
+                    5. Dedica tiempo a alguna actividad creativa, como pintar o dibujar.
+                    """;
+            System.out.println(texto);
+        } else {
+            System.out.println("El estado de ánimo ingresado no se encuentra en las listas proporcionadas.");
+        }
+    }
+}
+ 
